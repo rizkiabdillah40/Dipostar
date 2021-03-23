@@ -1215,7 +1215,6 @@ $Tangerang,$Size34,$Foldercount34,$TotalFile34,$allocateanddate34,$TotalDuration
 $Medan2,$Size35,$Foldercount35,$TotalFile35,$allocateanddate35,$TotalDuration35 -join ','
 $Bekasi,$Size36,$Foldercount36,$TotalFile36,$allocateanddate36,$TotalDuration36 -join ','
 
-$dateprint = Get-Date -Format "yyyyMMdd"
+######################## Script for copy contents for convert to ASCII #########################################
 $logfile_status = "D:\STATUSLOG\BPKB-StatusLogtoDG.log"
-Get-Content D:\STATUSLOG\BPKB-StatusLog.log | Select-String $dateprint | clip.exe
 Get-Clipboard | Out-File -FilePath $logfile_status -Encoding ascii -Append
