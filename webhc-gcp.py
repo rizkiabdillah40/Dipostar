@@ -10,20 +10,20 @@ driver.maximize_window()
 driver.get("https://status.cloud.google.com/")
 # identify element
 
-tes1 = driver.find_elements_by_css_selector("td.service-status")
-tes2 = driver.find_elements_by_xpath('//span[@class="end-bubble bubble ok" or @class="end-bubble bubble medium" or @class="end-bubble bubble high"]')
+namegcpsvc = driver.find_elements_by_css_selector("td.service-status")
+classname = driver.find_elements_by_xpath('//span[@class="end-bubble bubble ok" or @class="end-bubble bubble medium" or @class="end-bubble bubble high"]')
 statusok = 'ok'
 statuswarning = 'warning'
 statuserror = 'error'
 
-for x,y in zip(tes1,tes2):
-    a = x.text
-    b = y.get_attribute('class')
-    if b == ("end-bubble bubble high"):
-        print(a+","+statuserror)
-    elif b == ("end-bubble bubble ok"):
-        print(a+","+statusok)
+for printname,printclass in zip(namegcpsvc,classname):
+    nameservice = printname.text
+    buttonname = printclass.get_attribute('class')
+    if buttonname == ("end-bubble bubble high"):
+        print(nameservice+","+statuserror)
+    elif buttonname == ("end-bubble bubble ok"):
+        print(nameservice+","+statusok)
     else:
-        print(a+","+statuswarning)
+        print(nameservice+","+statuswarning)
 driver.close()
 exit()
